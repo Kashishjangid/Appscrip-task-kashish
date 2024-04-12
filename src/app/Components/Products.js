@@ -130,8 +130,8 @@ function Products() {
         
         setPageWidth(7/12)
 
-        const newLimit = limit == 2 ? 1: 2;
-        setLimit(newLimit)
+        // const newLimit = limit == 2 ? 1: 2;
+        // setLimit(newLimit)
 
 
     }
@@ -180,18 +180,18 @@ function Products() {
                                 name="idealFor"
                                 value="All"
                                 onChange={() => handleCheckboxChange("idealFor", "all")}
-                                // checked={selectedOptions.${item.category}.includes("all")}
+                                // checked={`selectedOptions.${item.category}.includes("all")`}
                             />
                             <label className="font-bold text-lg" htmlFor="">Customizable</label>
                         </div>
                         
                         {idealForCategories.map((item, index)=>(
                             <div key={index}>
-                                    <div onClick={() => toggleDropdown(${item.category})} className="cursor-pointer pt-6">
+                                    <div onClick={() => toggleDropdown(`${item.category}`)} className="cursor-pointer pt-6">
                                 <div className="flex items-center justify-between">
                                     <span className="font-bold text-lg">{item.category}</span>
                                     <span className="">
-                                        {dropdownOpen === ${item.category} ? (
+                                        {dropdownOpen === `${item.category}` ? (
                                             <FaAngleUp />
                                         ) : (
                                             <FaAngleDown />
@@ -205,12 +205,12 @@ function Products() {
                                     id="all"
                                     name={item.category}
                                     value="All"
-                                    onChange={() => handleCheckboxChange(${item.category}, "all")}
-                                    checked={selectedOptions.${item.category}.includes("all")}
+                                    onChange={() => handleCheckboxChange(`${item.category}`, "all")}
+                                    checked={`selectedOptions.${item.category}.includes("all")`}
                                 />
                                 <label htmlFor="all">All</label>
                             </div>
-                            {dropdownOpen === ${item.category} && (
+                            {dropdownOpen === `${item.category}` && (
                                 <div className="flex flex-col gap-4">
                                     <p className="cursor-pointer text-slate-400 underline"  onClick={() => handleUnselectAll(item.category)}>Unselect ALL</p>
                                     <div className="flex gap-2">
@@ -220,7 +220,7 @@ function Products() {
                                             name={item.category}
                                             value="Men"
                                             onChange={() => handleCheckboxChange(item.category, 'Men')}                                            
-                                            checked={selectedOptions.${item.category}.includes(${item.category.subcategories})}/>
+                                            checked={`selectedOptions.${item.category}.includes(${item.category.subcategories})`}/>
                                         <label htmlFor="men">{item.category.subcategories}Men (60)</label>
                                     </div>
                                     <div className="flex gap-2">
@@ -230,7 +230,7 @@ function Products() {
                                             name={item.category}
                                             value="Women"
                                             onChange={() => handleCheckboxChange(item.category, 'Women')} 
-                                            checked={selectedOptions.${item.category}.includes(${item.category.subcategories})}
+                                            checked={`selectedOptions.${item.category}.includes(${item.category.subcategories})`}
                                         />
                                         <label htmlFor="women">{item.category.subcategories} Women (63)</label>
                                     </div>
@@ -241,7 +241,7 @@ function Products() {
                                             name={item.category}
                                             value="BabyKids"
                                             onChange={() => handleCheckboxChange(item.category, 'Baby & Kids')} 
-                                            checked={selectedOptions.${item.category}.includes(${item.category.subcategories})}
+                                            checked={`selectedOptions.${item.category}.includes(${item.category.subcategories})`}
                                         />
                                         <label htmlFor="babyKids">{item.category.subcategories} Baby & Kids (59)</label>
                                     </div>
@@ -283,4 +283,4 @@ function Products() {
     );
 }
 
-export default Products;
+export default Products;
