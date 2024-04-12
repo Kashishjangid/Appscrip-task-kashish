@@ -3,6 +3,8 @@
 import React, { useState, useEffect } from "react";
 import { FaAngleDown, FaAngleUp } from "react-icons/fa";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
+import Image from 'next/image';
+
 
 
 function Products() {
@@ -178,18 +180,18 @@ function Products() {
                                 name="idealFor"
                                 value="All"
                                 onChange={() => handleCheckboxChange("idealFor", "all")}
-                                // checked={`selectedOptions.${item.category}.includes("all")`}
+                                // checked={selectedOptions.${item.category}.includes("all")}
                             />
                             <label className="font-bold text-lg" htmlFor="">Customizable</label>
                         </div>
                         
                         {idealForCategories.map((item, index)=>(
                             <div key={index}>
-                                    <div onClick={() => toggleDropdown(`${item.category}`)} className="cursor-pointer pt-6">
+                                    <div onClick={() => toggleDropdown(${item.category})} className="cursor-pointer pt-6">
                                 <div className="flex items-center justify-between">
                                     <span className="font-bold text-lg">{item.category}</span>
                                     <span className="">
-                                        {dropdownOpen === `${item.category}` ? (
+                                        {dropdownOpen === ${item.category} ? (
                                             <FaAngleUp />
                                         ) : (
                                             <FaAngleDown />
@@ -203,12 +205,12 @@ function Products() {
                                     id="all"
                                     name={item.category}
                                     value="All"
-                                    onChange={() => handleCheckboxChange(`${item.category}`, "all")}
-                                    checked={`selectedOptions.${item.category}.includes("all")`}
+                                    onChange={() => handleCheckboxChange(${item.category}, "all")}
+                                    checked={selectedOptions.${item.category}.includes("all")}
                                 />
                                 <label htmlFor="all">All</label>
                             </div>
-                            {dropdownOpen === `${item.category}` && (
+                            {dropdownOpen === ${item.category} && (
                                 <div className="flex flex-col gap-4">
                                     <p className="cursor-pointer text-slate-400 underline"  onClick={() => handleUnselectAll(item.category)}>Unselect ALL</p>
                                     <div className="flex gap-2">
@@ -218,7 +220,7 @@ function Products() {
                                             name={item.category}
                                             value="Men"
                                             onChange={() => handleCheckboxChange(item.category, 'Men')}                                            
-                                            checked={`selectedOptions.${item.category}.includes(${item.category.subcategories})`}/>
+                                            checked={selectedOptions.${item.category}.includes(${item.category.subcategories})}/>
                                         <label htmlFor="men">{item.category.subcategories}Men (60)</label>
                                     </div>
                                     <div className="flex gap-2">
@@ -228,7 +230,7 @@ function Products() {
                                             name={item.category}
                                             value="Women"
                                             onChange={() => handleCheckboxChange(item.category, 'Women')} 
-                                            checked={`selectedOptions.${item.category}.includes(${item.category.subcategories})`}
+                                            checked={selectedOptions.${item.category}.includes(${item.category.subcategories})}
                                         />
                                         <label htmlFor="women">{item.category.subcategories} Women (63)</label>
                                     </div>
@@ -239,7 +241,7 @@ function Products() {
                                             name={item.category}
                                             value="BabyKids"
                                             onChange={() => handleCheckboxChange(item.category, 'Baby & Kids')} 
-                                            checked={`selectedOptions.${item.category}.includes(${item.category.subcategories})`}
+                                            checked={selectedOptions.${item.category}.includes(${item.category.subcategories})}
                                         />
                                         <label htmlFor="babyKids">{item.category.subcategories} Baby & Kids (59)</label>
                                     </div>
@@ -249,20 +251,16 @@ function Products() {
                         ))}
                     </div>
                 }
-                <div className={`lg:w-full w-${pagewidth} p-4 flex justify-center items-center overflow-hidden`}>
+                <div className={`lg:w-full w-${pagewidth} p-0 flex justify-center items-center overflow-hidden`}>
                
-                    <div className={`grid grid-cols-${limit} lg:grid-cols-4`}>
+                    <div className={`grid ${showFilter ? 'grid-cols-1' : 'grid-cols-2'} lg:grid-cols-4`}>
+                    {/* <div className="grid grid-cols-2 lg:grid-cols-4"> */}
                         {filteredProducts.map((product) => (
                             <div
                                 key={product.id}
                                 className="lg:w-60 w-full  lg:m-8  m-2 px-8  "
                             >
-                                <img
-                                    src={product.image}
-                                    alt={product.title}
-                                    className="w-44 h-52  "
-                                    style={{}}
-                                />
+                                <Image className="h-44 w-52" src={product.image} alt={product.title} width={100} height={100}/>
                                 <h3 className=" py-4 font-bold w-48 cursor-pointer h-16 line-clamp-2 pr-6">{product.title}</h3>
                                 <div className="flex justify-between pr-6 items-center">
                                     <p className="">{product.category}</p> <span></span>
@@ -285,4 +283,4 @@ function Products() {
     );
 }
 
-export default Products;
+export default Products;
