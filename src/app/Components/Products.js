@@ -260,8 +260,11 @@ function Products() {
                                 key={product.id}
                                 className="lg:w-60 w-full  lg:m-8  m-2 px-8  "
                             >
-                                <Image className="h-44 w-52" src={product.image} alt={product.title} width={100} height={100}/>
-                                <h3 className=" py-4 font-bold w-48 cursor-pointer h-16 line-clamp-2 pr-6">{product.title}</h3>
+<img
+                  src={product.image}
+                  alt={product.title}
+                  className="w-full h-52"
+                />                                <h3 className=" py-4 font-bold w-48 cursor-pointer h-16 line-clamp-2 pr-6">{product.title}</h3>
                                 <div className="flex justify-between pr-6 items-center">
                                     <p className="">{product.category}</p> <span></span>
                                     <span onClick={() => toggleLike(product.id)}>
