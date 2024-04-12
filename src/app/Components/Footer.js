@@ -153,8 +153,8 @@ function Footer() {
                             <Image className="rounded-lg h-12 w-16" src={Mastrecard}  ></Image>
                             <Image className="rounded-lg h-12 w-16" src={GPay} ></Image>
                             <Image className="rounded-lg h-12 w-16" src={GPay}  ></Image>
-                            <Image className="rounded-lg h-12 w-16" src={GPay}  ></Image>
-                            <Image className="rounded-lg h-12 w-16" src={GPay}  ></Image>
+                            <Image className="rounded-lg h-12 w-16 lg:block hidden" src={GPay}  ></Image>
+                            <Image className="rounded-lg h-12 w-16 lg:block hidden" src={GPay}  ></Image>
                            
                         </div>
                     </div>
