@@ -55,7 +55,7 @@ function Header() {
         
       </div>
       <div className='flex justify-center flex-col items-center lg:py-8 py-6'>
-      <h1 className='lg:text-5xl text-3xl font-bold px-1'>DISCOVER OUR PRODUCTS</h1>
+      <h1 className='lg:text-5xl text-2xl font-bold px-1 text-center'>DISCOVER OUR PRODUCTS</h1>
       <p className='text-center lg:px-48 px-4  py-2 lg:py-6 lg:text-2xl text-lg'>Lorem seems to be a phrase without any specific meaning. It might be a typo or an incomplete sentence. </p>
       </div>
     </div>
