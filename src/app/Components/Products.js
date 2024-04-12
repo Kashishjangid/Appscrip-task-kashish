@@ -182,14 +182,14 @@ function Products() {
                                 onChange={() => handleCheckboxChange("idealFor", "all")}
                                 // checked={`selectedOptions.${item.category}.includes("all")`}
                             />
-                            <label className="font-bold text-lg" htmlFor="">Customizable</label>
+                            <label className="font-bold lg:text-lg text-[12px]" htmlFor="">Customizable</label>
                         </div>
                         
                         {idealForCategories.map((item, index)=>(
                             <div key={index}>
                                     <div onClick={() => toggleDropdown(`${item.category}`)} className="cursor-pointer pt-6">
                                 <div className="flex items-center justify-between">
-                                    <span className="font-bold text-lg">{item.category}</span>
+                                    <span className="font-bold lg:text-lg text-[12px]">{item.category}</span>
                                     <span className="">
                                         {dropdownOpen === `${item.category}` ? (
                                             <FaAngleUp />
@@ -212,7 +212,7 @@ function Products() {
                             </div>
                             {dropdownOpen === `${item.category}` && (
                                 <div className="flex flex-col gap-4">
-                                    <p className="cursor-pointer text-slate-400 underline"  onClick={() => handleUnselectAll(item.category)}>Unselect ALL</p>
+                                    <p className="cursor-pointer text-slate-400 underline lg:text-lg text-[12px]"  onClick={() => handleUnselectAll(item.category)}>Unselect ALL</p>
                                     <div className="flex gap-2">
                                         <input
                                             type="checkbox"
